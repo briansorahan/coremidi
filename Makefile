@@ -4,7 +4,11 @@ coremidi: $(SRCS)
 	@gcc -framework CoreFoundation -framework CoreMIDI -o coremidi *.c
 
 install: coremidi
-	@test -d $(HOME)/bin && cp coremidi $(HOME)/bin
+	@if [[ -d $(HOME)/bin ]]; then \
+             install coremidi $(HOME)/bin; \
+         elif [[  -d /usr/local/bin ]]; then \
+             install  coremidi /usr/local/bin; \
+	 fi
 
 clean:
 	@rm -f coremidi
