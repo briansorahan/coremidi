@@ -11,7 +11,7 @@ OSStatus printIncoming(MIDIUniqueID uniqueID) {
 	OSStatus       rc;
 	MIDIObjectRef  obj;
 	MIDIObjectType objType;
-	
+
 	rc = MIDIObjectFindByUniqueID(uniqueID, &obj, &objType);
 	if (rc != 0) return rc;
 
